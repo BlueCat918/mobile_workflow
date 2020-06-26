@@ -1,0 +1,22 @@
+{
+  "less.compile": {
+    // 是否压缩
+    "compress": true,
+    // 输出目录${workspaceRoot}为当前项目的根可以使用/or\\
+    // "out": "${workspaceRoot}\\invite\\static\\css\\",
+    "out": "../css/",
+    // 输出文件后缀
+    "outExt": ".min.css",
+    // 自动加前缀
+    "autoprefixer": "> 5%, last 5 Chrome versions, not ie 6-8, ios >= 8, android >= 4.4"
+  },
+  "editor.tabSize": 2,
+  "editor.detectIndentation": false,
+  "minify.minifyExistingOnSave": true,
+  "px2rem": {
+    "rootFontSize": 96,
+    "fixedDigits": 3,
+    "isNeedNotes": false
+  },
+  "px2vw.toFixedNum": 3
+}
