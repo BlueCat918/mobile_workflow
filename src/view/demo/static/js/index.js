@@ -1,7 +1,7 @@
 /*
  * @Author: BlueCat
  * @Date: 2020-06-25 22:50:01
- * @LastEditTime: 2020-06-26 00:22:35
+ * @LastEditTime: 2020-06-26 16:27:27
  * @LastEditors: BlueCat
  * @Description: 
  */
@@ -19,8 +19,8 @@ $(function() {
 
   function ajax() {
     $.get('/v1/getNewUserDiscountTicketDetail?uid=&client_id=&token=&src=web', function(data) {
-     const { serverTimeAt = '' } = data ? data.d : {}
-     $('.time').text(`跨域数据：${serverTimeAt}`)
+      const { serverTimeAt = '' } = data ? data.d : {}
+      $('.time').text(`跨域数据：${serverTimeAt}`)
     })
   }
 })

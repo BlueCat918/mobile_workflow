@@ -27,6 +27,6 @@ gulp.task('css', prodConfig.css); // 打包css
 gulp.task('image', prodConfig.image); // 打包image
 gulp.task('server', prodConfig.server); // 本地服务
 gulp.task('clean', prodConfig.clean); // 清理目录
-gulp.task('sources', gulp.series('image', 'js', 'css'));
+gulp.task('sources', gulp.series('js', 'css', 'image'));
 gulp.task('build', gulp.series('sources'));
 // build

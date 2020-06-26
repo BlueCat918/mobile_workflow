@@ -12,6 +12,7 @@ const CleanCss = require('gulp-clean-css'); // 压缩css
 const MinifyHtml = require("gulp-minify-html"); //压缩html
 // image
 const Cache = require('gulp-cache');
+const Tiny = require('gulp-tinypng-nokey');
 const Clean = require('gulp-clean'); // 清理目录
 // md5 发版本的时候为了避免浏览器读取了旧的缓存文件，需要为其添加md5戳
 const md5 = require("gulp-md5-plus");
@@ -52,7 +53,7 @@ async function js() {
     .pipe(Babel())
     .pipe(Uglify({
       compress: {
-        pure_funcs: ['console.log']//移除console
+        pure_funcs: ['console.log'] //移除console
       }
     })) // 压缩js
     .pipe(md5(6, output + '/*.html', {
@@ -64,6 +65,10 @@ async function js() {
 // image
 async function image() {
   return await gulp.src(imgPath)
+    .pipe(Tiny())
+    .pipe(md5(6, output + '/static/css/*.css', {
+      connector: '.' // 文件名和hash的连接符
+    }))
     .pipe(gulp.dest(output + '/static/image'));
 }
 
