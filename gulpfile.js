@@ -25,8 +25,8 @@ gulp.task('html', prodConfig.html); // 打包html
 gulp.task('js', prodConfig.js); // 打包js
 gulp.task('css', prodConfig.css); // 打包css
 gulp.task('image', prodConfig.image); // 打包image
-gulp.task('server', prodConfig.server); // 本地服务
 gulp.task('clean', prodConfig.clean); // 清理目录
-gulp.task('sources', gulp.series('js', 'css', 'image'));
+gulp.task('deploy', prodConfig.deploy); // 上传ftp
+gulp.task('sources', gulp.series('js', 'css', 'image', 'deploy'));
 gulp.task('build', gulp.series('sources'));
 // build

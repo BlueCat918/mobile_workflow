@@ -14,6 +14,7 @@ const MinifyHtml = require("gulp-minify-html"); //压缩html
 const Cache = require('gulp-cache');
 const Tiny = require('gulp-tinypng-nokey');
 const Clean = require('gulp-clean'); // 清理目录
+const Sftp = require('gulp-sftp');
 // md5 发版本的时候为了避免浏览器读取了旧的缓存文件，需要为其添加md5戳
 const md5 = require("gulp-md5-plus");
 const config = require('./config');
@@ -72,6 +73,18 @@ async function image() {
     .pipe(gulp.dest(output + '/static/image'));
 }
 
+// deploy
+async function deploy() {
+  return await gulp.src(output + '/*')
+    .pipe(sftp({
+      host: 'website.com',
+      port: 22,
+      remotePath: '/', // 远程目录
+      user: 'johndoe',
+      pass: '1234'
+    }));
+}
+
 // clean dir
 async function clean() {
   // 不设置allowEmpty: true会报File not found with singular glob
@@ -83,5 +96,6 @@ module.exports = {
   css,
   js,
   image,
-  clean
+  clean,
+  deploy
 }

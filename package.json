@@ -23,6 +23,7 @@
     "gulp-minify-html": "^1.0.6",
     "gulp-postcss": "^8.0.0",
     "gulp-rename": "^1.4.0",
+    "gulp-sftp": "^0.1.5",
     "gulp-tinypng-nokey": "^1.1.0",
     "gulp-uglify": "^3.0.2",
     "http-proxy-middleware": "^0.21.0",
